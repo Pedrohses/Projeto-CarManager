@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+    db:
+        image: postgres:latest
+        hostname: db
+        environment:
+            - POSTGRES_PASSWORD=senha
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./scripts/script.sql:/docker-entrypoint-initdb.d/script.sql
