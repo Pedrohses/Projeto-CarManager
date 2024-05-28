@@ -1,0 +1,48 @@
+@startuml Concessionaria
+
+!define SYSTEM_STYLE_CLASSIC
+abstract class Veiculo {
+    - modelo: String
+    - marca: String
+    - ano: int
+    - cor: String
+    - preco: double
+    - estado: String
+    - placa: String
+    + getInformacoes(): String
+    + getPreco(): double
+    + setPreco(preco: double): void
+    + vender(): void
+    + realizarManutencao(): void
+}
+
+class Carro {
+    - numeroPortas: int
+    - tipoCombustivel: String
+    - capacidadePassageiros: int
+}
+
+class Caminhao {
+    - capacidadeCarga: double
+    - numeroEixos: int
+    - tipoCarroceria: String
+}
+
+class Moto {
+    - cilindrada: int
+    - tipoPartida: String
+}
+
+class GerenciadorDeDados {
+    - dados: ArrayList<Veiculo>
+    + cadastrar(objeto: Veiculo): void
+    + editar(objeto: Veiculo): void
+    + consultar(): ArrayList<Veiculo>
+    + remover(objeto: Veiculo): void
+}
+
+Veiculo <|-- Carro
+Veiculo <|-- Caminhao
+Veiculo <|-- Moto
+
+@enduml

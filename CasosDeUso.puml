@@ -1,0 +1,14 @@
+@startuml teste
+left to right direction
+actor Usuario as user
+rectangle Sistema {
+    usecase (Cadastrar Item) as cadastrar
+    usecase (Editar Item) as editar
+    usecase (Consultar Item) as consultar
+    usecase (Remover Item) as remover
+}
+user --> cadastrar
+user --> editar
+user --> consultar
+user --> remover
+@enduml
